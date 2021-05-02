@@ -1,0 +1,65 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - help
+  - reserve
+  - seat_entry
+  - time
+  - done
+  - thankyou
+
+actions:
+  - reservations
+
+entities:
+  - seat_count
+  - section
+  - time
+
+forms: 
+  - Reserve_form:
+    - seat_count
+
+
+slots:
+  seat_count:
+      type: unfeaturized
+  section:
+      type: categorical
+      value:
+      - AC room
+      - Non AC
+  time:
+      type: unfeaturized
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_reserve:
+  - text: "How many seats would you like to reserve?"
+
+  utter_seat_entry:
+  - text: "Which section would you like to book?"
+  
+  utter_time:
+  - text:  "When would you like to book a reservation? (We are only open from 7pm to 10pm)"
+
+  utter_help:
+  - text: "How may I help you?"
+  
+  utter_done:
+  - text: "Your reservation is confirmed."
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

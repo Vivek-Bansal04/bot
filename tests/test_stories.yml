@@ -1,0 +1,58 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+version: "2.0"
+
+stories:
+- story: path 1
+  steps:
+  - user: |
+      Hey there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+     I am fine
+    intent: help
+  - action: utter_help
+  - user: |
+     I want to book a table for a party of 4
+    intent: reserve
+  - action: utter_reserve
+  - user: |
+     two
+    intent: seat_entry
+  - action: utter_seat_entry
+  - user: |
+     ac
+    intent: time
+  - action: utter_time
+  - user: |
+     In half an hour
+    intent: done
+  - action: utter_done
+  - user: |
+     Bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: path 2
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      I want to reserve a table
+    intent: reserve
+  - action: utter_reserve
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
